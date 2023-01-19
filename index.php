@@ -20,6 +20,7 @@ session_start();
   <div class="row">
     <div class="col d-flex flex-column flex-shrink-0 p-md-3 bg-light" style="width: 5vw; height: 100vh;">
         <a href="/" class="d-flex align-items-center mb-md-3 mb-md-0 me-md-auto link-dark text-decoration-none">
+          <img src="/img/logo_sendcards.png" alt="Logo SendCards" width="40px" height="60px">
           <span class="site_name fs-4 d-none d-sm-block">SendCards</span>
         </a>
         <hr>

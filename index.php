@@ -16,7 +16,7 @@ session_start();
 </head>
 <body class="container-fluid">
 
-  <!-- Menu latéral -->
+  <!-- *** Menu latéral *** -->
   <div class="row">
     <div class="col d-flex flex-column flex-shrink-0 p-md-3 bg-light" style="width: 5vw; height: 100vh;">
         <a href="/" class="d-flex align-items-center mb-md-3 mb-md-0 me-md-auto link-dark text-decoration-none">
@@ -61,17 +61,22 @@ session_start();
           <?php } ?>
         </ul>
     </div> 
-    <!-- fin menu latéral -->
+    <!-- *** fin menu latéral *** -->
 
-    <!-- Corps du site -->
+    <!-- *** Corps du site *** -->
     <?php
+
+    // *** Condition: si connecté ***
     if (isset($_SESSION['id_user'])) { ?>
       <div class="col-10 col-sm-9 col-md-10">
         <h2 class="d-block d-sm-none text-center">SendCards</h2>
         <h3 class="text-center mt-3">Dernières Cartes envoyées</h3>
         
       </div>
-    <?php } else {?>
+    <?php
+
+    // *** Condition: si pas connecté ***
+    } else {?>
       <div class="col-10 col-sm-9 col-md-10">
         <h2 class="d-block d-sm-none text-center">SendCards</h2>
         <p class="text-center mt-5"><a href="/public/login.php">Connectez-vous</a> pour envoyer une carte par e-mail</p>
@@ -79,7 +84,7 @@ session_start();
       </div>
       <?php } ?>
   </div>
-  <!-- fin corps du site -->
+  <!-- *** fin corps du site *** -->
 
       <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
 </body>

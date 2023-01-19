@@ -11,6 +11,32 @@
 </head>
 
 <body>
+    <header>
+        <img class="position-relative" src="/img/logo_sendcards.png" alt="Logo SendCards" width="100px" height="120px">
+        <h1 class="text-center">SendCards</h1>
+        <h5 class="text-center mt-4">Connectez-vous ou inscrivez-vous afin de pouvoir envoyer une carte</h5>
+    </header>
+    <hr class="ms-auto w-50 me-auto my-4">
+    <main>
+        <div class="container ">
+            <div class="row">
+                <!-- *** Formulaire pour se connecter *** -->
+                <div class="col">
+                    <h5 class="text-center">Déjà inscrit ?</h5>
+
+                </div>
+
+                <div class="separation d-md-block d-none col-md-1"></div>
+                <div class="separation2 d-block d-md-none col-1"></div>
+
+                <!-- *** Formulaire pour s'inscrire *** -->
+                <div class="col">
+                    <h5 class="text-center">Nouveau sur SendCards ?</h5>
+
+                </div>
+            </div>
+        </div>
+    </main>
     
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
 </body>

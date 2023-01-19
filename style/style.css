@@ -1,0 +1,49 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Oswald&display=swap');
+
+/* Code couleur du site
+color yellow: #FFC107
+color green: #28A745 
+*/
+
+body{
+    font-family: 'Noto Sans',sans-serif !important;
+    font-size: 2.6vh !important;
+}
+
+h1,h2,h3{
+    font-family: 'Oswald',sans-serif !important;
+}
+
+.hover_menu{
+    transition: background 800ms, border-radius 600ms;
+}
+
+.hover_menu:hover{
+    background: #FFC107;
+    border-radius: 8px;
+    font-weight: bold;
+}
+
+@media screen and (max-width: 767px) {
+    body{
+        font-family: 'Noto Sans',sans-serif !important;
+        font-size: 2.2vh !important;
+    }
+    .site_name{
+        font-size: 4vh !important;
+    }
+    h1,h2,h3{
+        font-family: 'Oswald',sans-serif !important;
+    }
+}
+
+@media screen and (max-width: 575px) {
+    body{
+        font-family: 'Noto Sans',sans-serif !important;
+        font-size: 1.8vh !important;
+    }
+    h1,h2,h3{
+        font-family: 'Oswald',sans-serif !important;
+    }
+}

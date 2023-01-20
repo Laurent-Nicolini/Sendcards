@@ -22,7 +22,18 @@
             <div class="row">
                 <!-- *** Formulaire pour se connecter *** -->
                 <div class="col">
-                    <h5 class="text-center">Déjà inscrit ?</h5>
+                    <h5 class="text-center">Déjà inscrit ? Connectez-vous avec vos identifiants:</h5>
+                    <form class="form-floating" action="connexion_user.php" method="POST">
+                        <div class="form-floating mt-3">
+                            <input name="email" type="email" class="form-control" id="floatingInput" placeholder="test@exemple.com">
+                            <label for="floatingInput">Votre email</label>
+                        </div>
+                        <div class="form-floating mt-3">
+                            <input name="password" type="password" class="form-control" id="floatingPassword" placeholder="password">
+                            <label for="floatingPassword">Votre mot de passe</label>
+                        </div>
+                        <button type="submit" class="btn btn-outline-warning mt-3" value="login">Je me connecte</button>
+                    </form>
 
                 </div>
 
@@ -32,7 +43,17 @@
                 <!-- *** Formulaire pour s'inscrire *** -->
                 <div class="col">
                     <h5 class="text-center">Nouveau sur SendCards ?</h5>
-
+                    <form class="form-floating" action="create_user.php" method="POST">
+                        <div class="form-floating mt-3">
+                            <input name="email" type="email" class="form-control" id="floatingInput2" placeholder="test@exemple.com">
+                            <label for="floatingInput2">Votre email</label>
+                        </div>
+                        <div class="form-floating mt-3">
+                            <input name="password" type="password" class="form-control" id="floatingPassword2" placeholder="password">
+                            <label for="floatingPassword2">Votre mot de passe</label>
+                        </div>
+                        <button type="submit" class="btn btn-outline-warning mt-3" value="login">Créer votre compte</button>
+                    </form>
                 </div>
             </div>
         </div>

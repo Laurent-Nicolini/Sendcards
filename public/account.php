@@ -12,7 +12,7 @@ include __DIR__.'/src/valid_login.php';
     <title>Votre compte sur SendCards</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css">
-    <link rel="stylesheet" href="/style/style.css">
+    <link rel="stylesheet" href="../style/style.css">
 </head>
 <body class="container-fluid">
 
@@ -43,6 +43,7 @@ include __DIR__.'/src/valid_login.php';
               Votre carnet d'adresses
             </a>
           </li>
+
           <?php
           if (isset($_SESSION['id_user'])) { ?>
             <li class="hover_menu mt-2">
@@ -71,7 +72,7 @@ include __DIR__.'/src/valid_login.php';
     if (isset($_SESSION['id_user'])) { ?>
       <div class="col-10 col-sm-9 col-md-10">
         <h2 class="d-block d-sm-none text-center">SendCards</h2>
-        <h3 class="text-center mt-3">Dernières Cartes envoyées</h3>
+        <h3 class="text-center mt-3">Vos Informations</h3>
         
       </div>
     <?php

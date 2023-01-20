@@ -31,13 +31,13 @@ include __DIR__.'/src/valid_login.php';
               Accueil
             </a>
           </li>
-          <li class="hover_menu mt-2 perm_hover">
+          <li class="hover_menu mt-2">
             <a href="" class="nav-link link-dark" aria-current="page">
               <i class="bi bi-person-circle"></i>
               Vos informations
             </a>
           </li>
-          <li class="hover_menu mt-2">
+          <li class="hover_menu mt-2 perm_hover">
             <a href="../public/address_book.php" class="nav-link link-dark">
                 <i class="bi bi-bookmark-star"></i>
               Votre carnet d'adresses

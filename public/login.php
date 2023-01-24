@@ -23,7 +23,7 @@
                 <!-- *** Formulaire pour se connecter *** -->
                 <div class="col">
                     <h5 class="text-center">Déjà inscrit ? Connectez-vous avec vos identifiants:</h5>
-                    <form class="form-floating" action="connexion_user.php" method="POST">
+                    <form class="form-floating" action="../src/connexion_user.php" method="POST">
                         <div class="form-floating mt-3">
                             <input name="email" type="email" class="form-control" id="floatingInput" placeholder="test@exemple.com">
                             <label for="floatingInput">Votre email</label>
@@ -43,7 +43,7 @@
                 <!-- *** Formulaire pour s'inscrire *** -->
                 <div class="col">
                     <h5 class="text-center">Nouveau sur SendCards ?</h5>
-                    <form class="form-floating" action="create_user.php" method="POST">
+                    <form class="form-floating" action="../src/create_user.php" method="POST">
                         <div class="form-floating mt-3">
                             <input name="email" type="email" class="form-control" id="floatingInput2" placeholder="test@exemple.com">
                             <label for="floatingInput2">Votre email</label>

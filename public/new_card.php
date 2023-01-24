@@ -1,6 +1,6 @@
 <?php
 session_start();
-include __DIR__.'/src/valid_login.php';
+include '../src/valid_login.php';
 ?>
 
 <!DOCTYPE html>
@@ -12,7 +12,7 @@ include __DIR__.'/src/valid_login.php';
     <title>Créez votre carte à envoyer sur SendCards</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css">
-    <link rel="stylesheet" href="../style/style.css">
+    <link rel="stylesheet" href="../style/style.css"><script src="https://cdn.tiny.cloud/1/qj7j0nufc3ewmuk77itllcnlnkot53bxad5kq4u5a5knykd6/tinymce/6/tinymce.min.js" referrerpolicy="origin"></script>
 </head>
 <body class="container-fluid">
 
@@ -26,7 +26,7 @@ include __DIR__.'/src/valid_login.php';
         <hr>
         <ul class="nav nav-pills flex-column mb-auto">
           <li class="hover_menu mt-2">
-            <a href="index.php" class="nav-link link-dark">
+            <a href="../index.php" class="nav-link link-dark">
               <i class="bi bi-house-door"></i>
               Accueil
             </a>
@@ -69,10 +69,17 @@ include __DIR__.'/src/valid_login.php';
 
     // *** Condition: si connecté ***
     if (isset($_SESSION['id_user'])) { ?>
-      <div class="col-10 col-sm-9 col-md-10">
+      <div class="col-10 col-sm-9 col-md-10 px-5">
         <h2 class="d-block d-sm-none text-center">SendCards</h2>
-        <h3 class="text-center mt-3">Ecrivez votre carte à envoyer</h3>
-        
+        <h3 class="text-center mt-5">Ecrivez votre carte à envoyer</h3>
+        <form action="../src/card_send.php" method="POST">
+            <div class="form-floating">
+                <input class="form-control mt-5 mb-3" type="email" name="recipient" id="recipient" placeholder="example@mail.com">
+                <label for="recipient">Destinataire</label>
+            </div>
+            <textarea class="form-control autofocus" name="card_text" placeholder="Ecrivez votre carte..." rows="10"></textarea>
+            <button type="submit" class="btn btn-outline-warning mt-3" value="sended_card">Envoyez votre carte</button>
+        </form>
       </div>
     <?php
 
@@ -87,6 +94,6 @@ include __DIR__.'/src/valid_login.php';
   </div>
   <!-- *** fin corps du site *** -->
 
-      <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
 </body>
 </html>

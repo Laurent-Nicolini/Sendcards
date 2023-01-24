@@ -1,6 +1,6 @@
 <?php
 session_start();
-include __DIR__.'/src/valid_login.php';
+include '../src/valid_login.php';
 ?>
 
 <!DOCTYPE html>
@@ -72,7 +72,8 @@ include __DIR__.'/src/valid_login.php';
     if (isset($_SESSION['id_user'])) { ?>
       <div class="col-10 col-sm-9 col-md-10">
         <h2 class="d-block d-sm-none text-center">SendCards</h2>
-        <h3 class="text-center mt-3">Vos Informations</h3>
+        <h3 class="text-center mt-3">Votre Compte:</h3>
+        <h3 class="text-center mt-3">Vos informations</h3>
         
       </div>
     <?php

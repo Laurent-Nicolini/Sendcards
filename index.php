@@ -1,6 +1,22 @@
 <?php
 session_start();
 
+// *** Fonction qui tronque le texte des cartes ***
+// *** Code pour remplacer les '...' par un lien ***
+// myTruncate($string, $limit, ".", "<a href=\"$url\">[view more]</a>");
+function myTruncate($string, $limit, $break = " ", $pad = "...")
+{
+  // Si $string est plus petit que $limit, on retourne $string
+  if(strlen($string) <= $limit) return $string;
+
+  $string = substr($string, 0, $limit);
+  if(false !== ($breakpoint = strrpos($string, $break))) {
+    $string = substr($string, 0, $breakpoint);
+  }
+
+  return $string . $pad;
+}
+
 ?>
 
 <!DOCTYPE html>
@@ -72,7 +88,22 @@ session_start();
       <div class="col-10 col-sm-9 col-md-10">
         <h2 class="d-block d-sm-none text-center">SendCards</h2>
         <h3 class="text-center mt-3">Dernières Cartes envoyées</h3>
-        
+
+        <?php 
+        require "src/lastcards_send.php";
+        if ($results){ ?>
+        <div class="container d-flex justify-content-around flex-wrap border">
+
+          <?php foreach ($results as $result) { $shortdesc = myTruncate($result->text, 100); ?>
+            <div class="cardssend">
+              <?= "<p>$shortdesc</p>"; ?>
+              <?= "<p>Envoyée à: $result->email_rec</p>"; ?>
+              <?= "Envoyée le: $result->date</p>"; ?>
+            </div>
+          
+        <?php } ?>
+        </div>
+        <?php } ?>
       </div>
     <?php
 

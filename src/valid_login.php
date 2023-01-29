@@ -1,6 +1,6 @@
 <?php
 
 if (!isset($_SESSION['id_user'])){
-    header('login.php');
+    header("Location: ../login.php");
     exit();
 }

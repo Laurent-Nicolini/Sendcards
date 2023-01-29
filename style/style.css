@@ -46,6 +46,18 @@ h1,h2,h3{
 
 }
 
+@media screen and (max-width: 1050px) {
+    .logo_name{
+        display: block !important;
+        justify-content: center !important;
+        
+    }
+    .logo{
+        margin: auto;
+        display: block;
+    }
+}
+
 @media screen and (max-width: 767px) {
     body{
         font-family: 'Noto Sans',sans-serif !important;
@@ -53,6 +65,7 @@ h1,h2,h3{
     }
     .site_name{
         font-size: 4vh !important;
+        text-align: center;
     }
     h1,h2,h3{
         font-family: 'Oswald',sans-serif !important;
@@ -66,5 +79,14 @@ h1,h2,h3{
     }
     h1,h2,h3{
         font-family: 'Oswald',sans-serif !important;
+    }
+}
+
+@media screen and (max-width: 470px){
+    .main{
+        flex-direction: column !important;
+    }
+    ul{
+        flex-direction: row !important;
     }
 }

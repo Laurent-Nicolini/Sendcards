@@ -46,7 +46,7 @@ include '../src/valid_login.php';
           <?php
           if (isset($_SESSION['id_user'])) { ?>
             <li class="hover_menu mt-2">
-              <a href="/src/deconnexion.php" class="nav-link link-dark">
+              <a href="../src/deconnexion.php" class="nav-link link-dark">
                 <i class="bi bi-box-arrow-right"></i>
                 Deconnexion
               </a>
@@ -54,7 +54,7 @@ include '../src/valid_login.php';
             
           <?php } else { ?>
             <li class="hover_menu mt-2">
-              <a href="/public/login.php" class="nav-link link-dark">
+              <a href="../login.php" class="nav-link link-dark">
               <i class="bi bi-door-open"></i>
                 Connectez-vous
               </a>
@@ -87,7 +87,7 @@ include '../src/valid_login.php';
     } else {?>
       <div class="col-10 col-sm-9 col-md-10">
         <h2 class="d-block d-sm-none text-center">SendCards</h2>
-        <p class="text-center mt-5"><a href="/public/login.php">Connectez-vous</a> pour envoyer une carte par e-mail</p>
+        <p class="text-center mt-5"><a href="../login.php">Connectez-vous</a> pour envoyer une carte par e-mail</p>
       
       </div>
       <?php } ?>

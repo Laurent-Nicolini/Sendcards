@@ -17,24 +17,24 @@ try {
                 $passhash = $result->password;
             }
 
-            if ($password === $passhash){
+            if (password_verify($password, $passhash)){
                 $_SESSION['id_user'] = intval($result->id);
                 $_SESSION['email'] = $result->email;
                 header('Location: ../index.php');
                 exit();
             } else {
                 $_SESSION['error'] = 1;
-                header('Location: ../public/login.php');
+                header('Location: ../login.php');
                 exit();
             }
         } else {
             $_SESSION['error'] = 1;
-            header('Location: ../public/login.php');
+            header('Location: ../login.php');
             exit();
         }
     } else{
         $_SESSION['error'] = 1;
-        header('Location: ../public/login.php');
+        header('Location: ../login.php');
         exit();
     }
 } catch (\Throwable $th) {

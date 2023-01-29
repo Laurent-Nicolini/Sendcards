@@ -1,19 +1,20 @@
 <?php
 
 require "connexion_db.php";
-$iduser = $_SESSION['id_user'];
 
-if($_SESSION['id_user']){
+if (isset($_SESSION['id_user'])){
+    $iduser = $_SESSION['id_user'];
     $statement = $pdo->prepare(
         "SELECT * FROM cards 
         INNER JOIN address_book
-        WHERE address_book.id=address_id"
+        ON cards.address_id = address_book.id
+        WHERE cards.user_id=:iduser"
         );
-    //$statement->bindValue(':id_user',$iduser, PDO::PARAM_STR);
+    $statement->bindValue(':iduser', $iduser, PDO::PARAM_INT);
     $statement->execute();
     $results = $statement->fetchAll(PDO::FETCH_OBJ);
 
 } else {
-    header("Location: ../public/login.php");
+    header("Location: ../login.php");
     exit();
 }

@@ -1,3 +1,7 @@
+<?php
+session_start();
+?>
+
 <!DOCTYPE html>
 <html lang="fr">
 <head>
@@ -15,11 +19,22 @@
         <img class="position-relative" src="/img/logo_sendcards.png" alt="Logo SendCards" width="100px" height="120px">
         <h1 class="text-center">SendCards</h1>
         <h5 class="text-center mt-4">Connectez-vous ou inscrivez-vous afin de pouvoir envoyer une carte</h5>
+
+        <!-- *** Message d'erreur si connexion impossible *** -->
+        <?php
+        if (isset($_SESSION['error'])){ 
+            if ($_SESSION['error'] === 1) {?>
+            <div class="error bg-danger text-center text-white">
+                Connexion impossible, veuillez rentrer un identifiant et un mot de passe correct
+            </div>
+        <?php session_destroy(); } }?>
+
     </header>
     <hr class="ms-auto w-50 me-auto my-4">
     <main>
         <div class="container ">
             <div class="row">
+
                 <!-- *** Formulaire pour se connecter *** -->
                 <div class="col">
                     <h5 class="text-center">Déjà inscrit ? Connectez-vous avec vos identifiants:</h5>
@@ -44,6 +59,10 @@
                 <div class="col">
                     <h5 class="text-center">Nouveau sur SendCards ?</h5>
                     <form class="form-floating" action="../src/create_user.php" method="POST">
+                        <div class="form-floating mt-3">
+                            <input name="name" type="text" class="form-control" id="floatingInputname" placeholder="my name">
+                            <label for="floatingInputname">Votre nom</label>
+                        </div>
                         <div class="form-floating mt-3">
                             <input name="email" type="email" class="form-control" id="floatingInput2" placeholder="test@exemple.com">
                             <label for="floatingInput2">Votre email</label>

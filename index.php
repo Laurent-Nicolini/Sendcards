@@ -33,10 +33,10 @@ function myTruncate($string, $limit, $break = " ", $pad = "...")
 <body class="container-fluid">
 
   <!-- *** Menu latéral *** -->
-  <div class="row">
-    <div class="col d-flex flex-column flex-shrink-0 p-md-3 bg-light" style="width: 5vw; height: 100vh;">
-        <a href="/" class="d-flex align-items-center mb-md-3 mb-md-0 me-md-auto link-dark text-decoration-none">
-          <img src="/img/logo_sendcards.png" alt="Logo SendCards" width="40px" height="60px">
+  <div class="main row">
+    <div class="menu col d-flex flex-column flex-shrink-0 p-md-3 bg-light" style="width: 5vw; height: 100vh;">
+        <a href="/" class="logo_name d-flex align-items-center mb-md-3 mb-md-0 me-md-auto link-dark text-decoration-none">
+          <img class="logo" src="/img/logo_sendcards.png" alt="Logo SendCards" width="40px" height="60px">
           <span class="site_name fs-4 d-none d-sm-block">SendCards</span>
         </a>
         <hr>
@@ -70,7 +70,7 @@ function myTruncate($string, $limit, $break = " ", $pad = "...")
             
           <?php } else { ?>
             <li class="hover_menu mt-2">
-              <a href="/public/login.php" class="nav-link link-dark">
+              <a href="/login.php" class="nav-link link-dark">
               <i class="bi bi-door-open"></i>
                 Connectez-vous
               </a>
@@ -87,23 +87,29 @@ function myTruncate($string, $limit, $break = " ", $pad = "...")
     if (isset($_SESSION['id_user'])) { ?>
       <div class="col-10 col-sm-9 col-md-10">
         <h2 class="d-block d-sm-none text-center">SendCards</h2>
-        <h3 class="text-center mt-3">Dernières Cartes envoyées</h3>
+        <h3 class="text-center my-3">Dernières Cartes envoyées</h3>
 
         <?php 
         require "src/lastcards_send.php";
         if ($results){ ?>
-        <div class="container d-flex justify-content-around flex-wrap border">
+        <div class="container d-flex justify-content-around flex-wrap">
 
-          <?php foreach ($results as $result) { $shortdesc = myTruncate($result->text, 100); ?>
-            <div class="cardssend">
+          <?php foreach ($results as $result) { 
+            $shortdesc = myTruncate($result->text, 200);
+
+            // *** Utilisation fonction DateTime pour régler au format français ***
+            $dt = new \DateTime($result->date);
+            $date = $dt->format('d/m/Y');
+            $heure = $dt->format('H:i'); ?>
+            <div class="cardssend border p-3 m-3 col-8 col-md-5">
               <?= "<p>$shortdesc</p>"; ?>
               <?= "<p>Envoyée à: $result->email_rec</p>"; ?>
-              <?= "Envoyée le: $result->date</p>"; ?>
+              <?= "<p>Envoyée le: $date à $heure</p>"; ?>
             </div>
           
         <?php } ?>
         </div>
-        <?php } ?>
+        <?php }else {echo "<div class='text-center mt-5'>Vous n'avez pas encore envoyer de cartes</div>";} ?>
       </div>
     <?php
 
@@ -111,7 +117,7 @@ function myTruncate($string, $limit, $break = " ", $pad = "...")
     } else {?>
       <div class="col-10 col-sm-9 col-md-10">
         <h2 class="d-block d-sm-none text-center">SendCards</h2>
-        <p class="text-center mt-5"><a href="/public/login.php">Connectez-vous</a> pour envoyer une carte par e-mail</p>
+        <p class="text-center mt-5"><a href="../login.php">Connectez-vous</a> pour envoyer une carte par e-mail</p>
       
       </div>
       <?php } ?>

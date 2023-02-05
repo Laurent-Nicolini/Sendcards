@@ -73,6 +73,23 @@ include '../src/valid_login.php';
       <div class="col-10 col-sm-9 col-md-10 px-5">
         <h2 class="d-block d-sm-none text-center">SendCards</h2>
         <h3 class="text-center mt-5">Ecrivez votre carte à envoyer</h3>
+
+        <?php if (isset($_SESSION['card_send'])){
+          if($_SESSION['card_send'] === "yes"){ ?>
+
+            <div class="card_send bg-success text-center my-3">
+              Votre carte a bien été envoyée !
+            </div>
+
+          <?php $_SESSION['card_send'] = ""; } elseif($_SESSION['card_send'] === "error"){ ?>
+
+            <div class="card_send bg-warning text-center my-3">
+              Un problème est survenu lors de l'envoi de votre carte
+            </div>
+
+          <?php $_SESSION['card_send'] = "";}
+        } ?>
+
         <form action="../src/card_send.php" method="POST">
             <div class="form-floating">
                 <input class="form-control mt-5 mb-3" type="email" name="recipient" id="recipient" placeholder="example@mail.com">
